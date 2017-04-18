@@ -1,7 +1,17 @@
+#pic_of_me img{
+    width: 200px;
+}
+a{
+    text-decoration: none;
+    font-size: 18px;
+}
+#list_of_skills_need_to_make{
+
+}
 #header{
     height: 20vh;
     background-color: deepskyblue;
-    vertical-align: middle;
+    padding: 5vh;
 }
 #header div{
     display: inline-block;
@@ -34,4 +44,7 @@
 }
 .back img{
     height: 150px;
+}
+.transparent{
+    opacity: 0;
 }
