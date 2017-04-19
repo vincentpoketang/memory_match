@@ -8,10 +8,16 @@ a{
 #list_of_skills_need_to_make{
 
 }
+body{
+    background-image: url("images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -200px;
+}
 #header{
-    height: 20vh;
-    background-color: deepskyblue;
-    padding: 5vh;
+    height: 100px;
+    background-color: transparent;
+    padding: 10px;
 }
 #header div{
     display: inline-block;
@@ -19,12 +25,20 @@ a{
 #title{
     text-align: center;
 }
+#title img{
+    height: 90px;
+}
 #game-area div{
     display: inline-block;
 }
 #stats{
-    background-color: deepskyblue;
-    height: 80vh;
+    background: rgba(0,191,255,0.2);
+    height: 200px;
+    width: 200px;
+    margin-left: 20px;
+    font-size: 18px;
+    margin-top: 30px;
+    border: 1px solid black;
 }
 .card{
     position: relative;

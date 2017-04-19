@@ -11,11 +11,8 @@
 </head>
 <body>
     <div id="header" class="col-xs-12">
-        <div id="logo" class="col-xs-2">
-            <h1>Logo</h1>
-        </div>
-        <div id="title" class="col-xs-8">
-            <h1>Pokemon Memory Game</h1>
+        <div id="title" class="col-xs-offset-2 col-xs-8">
+            <img src="images/title.png"/>
         </div>
         <div id="links" class="col-xs-2">
             <a href="#">Setting</a>
@@ -24,19 +21,19 @@
     </div>
     <div id="stats" class="col-xs-2">
         <div class="games_played">
-            <div class="label">Games Played</div>
-            <div class="value"></div>
+            <h4><div class="label label-success">Games Played</div></h4>
+            <span class="value"></span>
         </div>
         <div class="attempts">
-            <div class="label">attempts</div>
+            <h4><div class="label label-info">attempts</div></h4>
             <div class="value"></div>
         </div>
         <div class="accuracy">
-            <div class="label">Accuracy</div>
+            <h4><div class="label label-warning">Accuracy</div></h4>
             <div class="value"></div>
         </div>
         <div id="reset">
-            <button class="reset">Reset Game</button>
+            <button class="reset btn btn-info">Reset Game</button>
         </div>
     </div>
     <div id="game" class="col-xs-10">
@@ -57,6 +54,23 @@
                     <img src="images/pokemon_back.png"/>
                 </div>
             </div>
+            <div class="card col-xs-2">
+                <div class="front">
+                    <img src="images/bulbasaur.gif"/>
+                </div>
+                <div class="back">
+                    <img src="images/pokemon_back.png"/>
+                </div>
+            </div>
+            <div class="card col-xs-2">
+                <div class="front">
+                    <img src="images/charmander.gif"/>
+                </div>
+                <div class="back">
+                    <img src="images/pokemon_back.png"/>
+                </div>
+            </div>
+            <!--
             <div class="card col-xs-2">
                 <div class="front">
                     <img src="images/squirtle.gif"/>
@@ -113,6 +127,7 @@
                     <img src="images/pokemon_back.png"/>
                 </div>
             </div>
+            -->
         </div>
     </div>
 </body>
