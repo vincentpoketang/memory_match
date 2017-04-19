@@ -32,13 +32,19 @@ body{
     display: inline-block;
 }
 #stats{
-    background: rgba(0,191,255,0.2);
-    height: 200px;
+    background: rgba(255,255,255,0.4);
+    height: 300px;
     width: 200px;
     margin-left: 20px;
     font-size: 18px;
     margin-top: 30px;
     border: 1px solid black;
+}
+#reset{
+    text-align: center;
+}
+h4{
+    text-align: center;
 }
 .card{
     position: relative;
@@ -61,4 +67,8 @@ body{
 }
 .transparent{
     opacity: 0;
+}
+.cyndaquil img{
+    height: 40px;
+    bottom: -80px;
 }
