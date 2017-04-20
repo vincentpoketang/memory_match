@@ -9,7 +9,8 @@ a{
 
 }
 body{
-    background-image: url("images/background.png");
+    background-color: #00b346;
+    background-image: url("images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -200px;
@@ -22,7 +23,15 @@ body{
 #header div{
     display: inline-block;
 }
-#title{
+#setting img{
+    height: 50px;
+    border: 5px solid #0b6fa4;
+}
+#about img{
+    height: 50px;
+    border: 5px solid #0b6fa4;
+}
+#title,#about,#setting{
     text-align: center;
 }
 #title img{
@@ -63,12 +72,16 @@ h4{
     bottom: -60px;
 }
 .back img{
-    height: 150px;
+    height: 130px;
 }
 .transparent{
     opacity: 0;
 }
-.cyndaquil img{
+.height_40px img{
     height: 40px;
     bottom: -80px;
+}
+.height_50px img{
+    height: 50px;
+    bottom: -70px;
 }
