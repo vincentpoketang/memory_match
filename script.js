@@ -60,20 +60,79 @@ function card_clicked(element){
     }
 }
 function randomize_cards(){
-    var cards = $('.card');
+    var cards = $('.position');
     for(var i = 0; i<cards.length; i++){
         var target = Math.floor(Math.random() * cards.length -1) + 1;
         var target2 = Math.floor(Math.random() * cards.length -1) + 1;
         cards[target].before(cards[target2]);
     }
 }
+function creating_div_block(front,front_image){
+    var positioning_div = $('<div>',{
+        class: 'position col-xs-2'
+    });
+    var card_div = $('<div>',{
+        class: 'card'
+    });
+    var front_div = $('<div>',{
+        class: front
+    });
+    var front_img = $('<img>',{
+        src: front_image
+    });
+    var back_div = $('<div>',{
+        class: 'back'
+    });
+    var back_img = $('<img>',{
+        src: 'images/pokemon_back.png'
+    });
+    back_div.append(back_img);
+    front_div.append(front_img);
+    card_div.append(front_div,back_div);
+    positioning_div.append(card_div);
+    $('#game-area').append(positioning_div);
+}
+function change_border_color(id,color){
+    console.log('hi');
+    $(id).find('img').css("border-color",color);
+}
 $(document).ready(function(){
+    creating_div_block('front height_50px transparent','images/bulbasaur.gif');
+    creating_div_block('front height_50px transparent','images/bulbasaur.gif');
+    creating_div_block('front transparent','images/charmander.gif');
+    creating_div_block('front transparent','images/charmander.gif');
+    creating_div_block('front height_50px transparent','images/squirtle.gif');
+    creating_div_block('front height_50px transparent','images/squirtle.gif');
+    creating_div_block('front transparent','images/chikorita.gif');
+    creating_div_block('front transparent','images/chikorita.gif');
+    creating_div_block('front height_40px transparent','images/cyndaquil.gif');
+    creating_div_block('front height_40px transparent','images/cyndaquil.gif');
+    creating_div_block('front transparent','images/totodile.gif');
+    creating_div_block('front transparent','images/totodile.gif');
+    creating_div_block('front transparent','images/treecko.gif');
+    creating_div_block('front transparent','images/treecko.gif');
+    creating_div_block('front transparent','images/torchic.gif');
+    creating_div_block('front transparent','images/torchic.gif');
+    creating_div_block('front transparent','images/mudkip.gif');
+    creating_div_block('front transparent','images/mudkip.gif');
     display_stats();
     randomize_cards();
     $('.card').click(function(){
         if($(this).find('.front').hasClass('transparent') && is_timeout_done){
             card_clicked(this);
         }
+    });
+    $('#setting').mouseover(function(){
+        change_border_color(this,'#fff335');
+    });
+    $('#setting').mouseout(function(){
+        change_border_color(this,'#0b6fa4');
+    });
+    $('#about').mouseover(function(){
+        change_border_color(this,'#fff335');
+    });
+    $('#about').mouseout(function(){
+        change_border_color(this,'#0b6fa4');
     });
     $('.reset').click(function(){
         if(attempts!==0){
