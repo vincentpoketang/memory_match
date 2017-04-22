@@ -93,8 +93,32 @@ function creating_div_block(front,front_image){
     $('#game-area').append(positioning_div);
 }
 function change_border_color(id,color){
-    console.log('hi');
-    $(id).find('img').css("border-color",color);
+    $(id).css("border-color",color);
+}
+function all_buttons_hover(){
+    $('#setting img').mouseover(function(){
+        change_border_color(this,'#fff335');
+    });
+    $('#setting img').mouseout(function(){
+        change_border_color(this,'#0b6fa4');
+    });
+    $('#about img').mouseover(function(){
+        change_border_color(this,'#fff335');
+    });
+    $('#about img').mouseout(function(){
+        change_border_color(this,'#0b6fa4');
+    });
+}
+function grass_move_when_hover(){
+    var isAnimated = false;
+    $('.card').mouseover(function(){
+        if(!isAnimated && $(this).find('.front').hasClass('transparent')){
+            isAnimated = true;
+            $(this).find('.back').animate({ "left": "+=3px"}, "fast" );
+            $(this).find('.back').animate({ "left": "-=3px" }, "fast" );
+        }
+        isAnimated = false;
+    })
 }
 $(document).ready(function(){
     creating_div_block('front height_50px transparent','images/bulbasaur.gif');
@@ -115,6 +139,7 @@ $(document).ready(function(){
     creating_div_block('front transparent','images/torchic.gif');
     creating_div_block('front transparent','images/mudkip.gif');
     creating_div_block('front transparent','images/mudkip.gif');
+    grass_move_when_hover();
     display_stats();
     randomize_cards();
     $('.card').click(function(){
@@ -122,18 +147,7 @@ $(document).ready(function(){
             card_clicked(this);
         }
     });
-    $('#setting').mouseover(function(){
-        change_border_color(this,'#fff335');
-    });
-    $('#setting').mouseout(function(){
-        change_border_color(this,'#0b6fa4');
-    });
-    $('#about').mouseover(function(){
-        change_border_color(this,'#fff335');
-    });
-    $('#about').mouseout(function(){
-        change_border_color(this,'#0b6fa4');
-    });
+    all_buttons_hover();
     $('.reset').click(function(){
         if(attempts!==0){
             games_played++;
