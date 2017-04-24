@@ -199,18 +199,15 @@ function grass_move_when_hover(){
         isAnimated = false;
     })
 }
-function switch_img_of_matched_pokemon(first_card,second_card){
+function switch_img_of_matched_pokemon(first_card,second_card){ // Pretty much evolution function
     var card_img = $(first_card).find('.front').find('img').attr('src');
     var pre_evolution_card_img = card_img;
     // Change first and second card image to evolved state
     $(first_card).find('.front').find('img').attr('src', pokemon_evolution_chart[card_img]);
     $(second_card).find('.front').find('img').attr('src', pokemon_evolution_chart[card_img]);
-    // // Remove height for pre-evolution
-    $(first_card).find('.front').removeClass(pokemon_list[card_img][1]);
-    $(second_card).find('.front').removeClass(pokemon_list[card_img][1]);
-    // Add new height for evolution
-    $(first_card).find('.front').addClass(pokemon_list[pokemon_evolution_chart[card_img]][1]);
-    $(second_card).find('.front').addClass(pokemon_list[pokemon_evolution_chart[card_img]][1]);
+    // Change height for evolution
+    $(first_card).find('.front').removeClass(pokemon_list[card_img][1]).addClass(pokemon_list[pokemon_evolution_chart[card_img]][1]);
+    $(second_card).find('.front').removeClass(pokemon_list[card_img][1]).addClass(pokemon_list[pokemon_evolution_chart[card_img]][1]);
     card_img = $(first_card).find('.front').find('img').attr('src');
     $('#info-box').text(pokemon_list[pre_evolution_card_img][0] +" evolved into " + pokemon_list[card_img][0] + "!");
     if(pokemon_evolution_chart[card_img] !== undefined) {
