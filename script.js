@@ -8,6 +8,15 @@ var is_timeout_done = true;
 var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
+var pokemon_first_evolution = ['images/bulbasaur.gif',
+                               'images/charmander.gif',
+                               'images/squirtle.gif',
+                               'images/chikorita.gif',
+                               'images/cyndaquil.gif',
+                               'images/totodile.gif',
+                               'images/treecko.gif',
+                               'images/torchic.gif',
+                               'images/mudkip.gif'];
 var pokemon_evolution_chart = {
     'images/bulbasaur.gif':'images/ivysaur.gif',
     'images/ivysaur.gif':'images/venusaur.gif',
@@ -87,10 +96,10 @@ var pokemon_list = {
     'images/swampert.gif':['Swampert','height_90px']
 };
 function display_stats(){
-    $('.games_played .value').text(games_played);
-    $('.matches .value').text(match_counter);
-    $('.attempts .value').text(attempts);
-    $('.accuracy .value').text(Math.round(accuracy*100)+'%');
+    $('#games_played .value').text(games_played);
+    $('#matches .value').text(match_counter);
+    $('#attempts .value').text(attempts);
+    $('#accuracy .value').text(Math.round(accuracy*100)+'%');
 }
 function reset_stats(){
     accuracy = 0;
@@ -143,10 +152,10 @@ function randomize_cards(){
     for(var i = 0; i<cards.length; i++){
         var target = Math.floor(Math.random() * cards.length -1) + 1;
         var target2 = Math.floor(Math.random() * cards.length -1) + 1;
-        cards[target].before(cards[target2]);
+        document.getElementById('game-area').insertBefore(cards[target2],cards[target]);
     }
 }
-function creating_div_block(front,front_image){
+function creating_div_block(front_image){
     var positioning_div = $('<div>',{
         class: 'position col-xs-2'
     });
@@ -154,7 +163,7 @@ function creating_div_block(front,front_image){
         class: 'card'
     });
     var front_div = $('<div>',{
-        class: front
+        class: 'front transparent'
     });
     var front_img = $('<img>',{
         src: front_image
@@ -197,7 +206,7 @@ function grass_move_when_hover(){
             $(this).find('.back').animate({ "left": "-=3px" }, "fast" );
         }
         isAnimated = false;
-    })
+    });
 }
 function switch_img_of_matched_pokemon(first_card,second_card){ // Pretty much evolution function
     var card_img = $(first_card).find('.front').find('img').attr('src');
@@ -216,30 +225,27 @@ function switch_img_of_matched_pokemon(first_card,second_card){ // Pretty much e
             $(first_card).find('.front').addClass('transparent');
             $(second_card).find('.front').addClass('transparent');
             randomize_cards();
-            $('#info-box').append("<br>Every Pokemon ran into a different grass!")
+            $('#info-box').append("<br>Every Pokemon ran into a different grass!");
             is_timeout_done = true;
         },2000);
     }
 }
+//Music
+function audio_off(){
+    $('.fa-volume-off').removeClass('clicked');
+    $('.fa-volume-up').addClass('clicked');
+    $('.themesong').trigger('pause');
+}
+function audio_on(){
+    $('.fa-volume-up').removeClass('clicked');
+    $('.fa-volume-off').addClass('clicked');
+    $('.themesong').trigger('play');
+}
 $(document).ready(function(){
-    creating_div_block('front height_50px transparent','images/bulbasaur.gif');
-    creating_div_block('front height_50px transparent','images/bulbasaur.gif');
-    creating_div_block('front height_60px transparent','images/charmander.gif');
-    creating_div_block('front height_60px transparent','images/charmander.gif');
-    creating_div_block('front height_50px transparent','images/squirtle.gif');
-    creating_div_block('front height_50px transparent','images/squirtle.gif');
-    creating_div_block('front height_60px transparent','images/chikorita.gif');
-    creating_div_block('front height_60px transparent','images/chikorita.gif');
-    creating_div_block('front height_40px transparent','images/cyndaquil.gif');
-    creating_div_block('front height_40px transparent','images/cyndaquil.gif');
-    creating_div_block('front height_60px transparent','images/totodile.gif');
-    creating_div_block('front height_60px transparent','images/totodile.gif');
-    creating_div_block('front height_60px transparent','images/treecko.gif');
-    creating_div_block('front height_60px transparent','images/treecko.gif');
-    creating_div_block('front height_60px transparent','images/torchic.gif');
-    creating_div_block('front height_60px transparent','images/torchic.gif');
-    creating_div_block('front height_60px transparent','images/mudkip.gif');
-    creating_div_block('front height_60px transparent','images/mudkip.gif');
+    for(var i = 0; i<pokemon_first_evolution.length; i++){
+        creating_div_block(pokemon_first_evolution[i]);
+        creating_div_block(pokemon_first_evolution[i]);
+    }
     grass_move_when_hover();
     display_stats();
     randomize_cards();
@@ -260,9 +266,10 @@ $(document).ready(function(){
                 $(cards[i]).find('.front').find('img').attr('src',pokemon_first_state[$(cards[i]).find('.front').find('img').attr('src')]);
                 $(cards[i]).find('.front').addClass(pokemon_list[pokemon_first_state[$(cards[i]).find('.front').find('img').attr('src')]][1]);
             }
+            first_card_clicked = null;
             $('#info-box').text("Welcome to Pokemon Memory Match! Find a matched set of Pokemon and try to catch them all!");
             $('.front').addClass('transparent');
             randomize_cards();
         }
-    })
+    });
 });
