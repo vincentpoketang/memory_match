@@ -44,6 +44,9 @@ body {
 #game {
   width: 70%;
   max-height: 800px; }
+  @media (min-aspect-ratio: 1050 / 600) {
+    #game #game-area {
+      margin-top: 20px; } }
   @media (min-width: 1400px) {
     #game #game-area {
       margin-top: 50px; } }
