@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pokemon Memory Game: Gotta Match Them All</title>
+    <title>Pokemon Memory Match: Gotta Match Them All</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="pokemon_data.js" rel="script" type="text/javascript"></script>
     <script src="script.js" rel="script" type="text/javascript"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="images/favicon.ico"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="main">
         <div>
             <div id="header" class="col-xs-12">
-                <div id="setting" class="col-xs-4">
-                    <!--<a href="#"><img src="images/setting.png"/></a>-->
-                </div>
                 <div id="title" class="col-xs-4">
                     <img src="images/title.png"/>
                 </div>
-                <div id="about" class="col-xs-4">
-                    <!--<a href="about.html"><img src="images/about.png"/></a>-->
+                <div id="info-box" class="col-xs-8">
+                    Welcome to Pokemon Memory Match! Find a matched set of Pokemon and try to catch them all!
                 </div>
             </div>
             <div class="row">
@@ -45,17 +44,17 @@
                         <button class="reset btn btn-info">Reset</button>
                     </div>
                     <div class="col-xs-12 audio">
-                        <i class="fa fa-volume-off fa-2x clicked" aria-hidden="true" onclick="audio_on()"></i>
-                        <i class="fa fa-volume-up fa-2x" aria-hidden="true" onclick="audio_off();"></i>
-                        <audio class="themesong" autoplay=true loop="loop" src="Safari%20Zone%20Gate.mp3"></audio>
+                        <i class="fa fa-volume-up fa-2x clicked" aria-hidden="true" onclick="audio_off();"></i>
+                        <i class="fa fa-volume-off fa-2x" aria-hidden="true" onclick="audio_on();"></i>
+                        <audio class="themesong" loop="loop" src="Safari%20Zone%20Gate.mp3"></audio>
                     </div>
                 </div>
                 <div id="game" class="col-xs-10">
                     <div id="game-area">
                     </div>
-                    <div id="info-box" class="col-xs-12">
+                    <!--<div id="info-box" class="col-xs-12">
                         Welcome to Pokemon Memory Match! Find a matched set of Pokemon and try to catch them all!
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

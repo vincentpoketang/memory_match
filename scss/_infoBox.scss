@@ -1,16 +1,30 @@
-@media (min-aspect-ratio: 1050/600){
-    #info-box{
-        display: none;
-    }
-}
+//@media (min-aspect-ratio: 1000/600){
+//    #info-box{
+//        display: none;
+//    }
+//}
+//@media (min-height: 850px){
+//    #info-box{
+//        display: inline;
+//    }
+//}
 #info-box{
-    height: 12vh;
-    max-height: 150px;
-    border: 5px solid #0b6fa4;
+    background: rgba(255,255,255,0.4);
+    min-height: 80px;
+    max-height: 125px;
+    max-width: 800px;
+    border: 3px solid #0b6fa4;
     font-size: 100%;
     font-weight: bold;
-    color: white;
-    padding-top: 15px;
-    padding-left: 20px;
+    color: #0b6fa4;
+    padding-top: 10px;
+    padding-left: 10px;
     margin-top: 5px;
+    @media (min-height: 800px){
+        height:50%;
+        width: 80%;
+        margin: 10px auto;
+        float: none;
+        clear: both;
+    }
 }

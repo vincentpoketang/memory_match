@@ -2,7 +2,17 @@ body {
   height: 100vh;
   background-image: url("../images/background.jpg");
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  -webkit-user-select: none;
+  /* Chrome, Opera, Safari */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */
+  user-drag: none;
+  -webkit-user-drag: none; }
 
 .row {
   width: 100%;
@@ -26,22 +36,24 @@ body {
   height: 20vh;
   background-color: transparent;
   padding: 10px; }
-  #header div {
-    display: inline-block; }
-
-#setting img, #about img {
-  width: 15vw;
-  max-width: 200px;
-  border: 5px solid #0b6fa4; }
-
-#title, #about, #setting {
-  text-align: center; }
-
-#title img {
-  width: 25vw;
-  max-width: 250px; }
+  @media (min-height: 800px) {
+    #header .col-xs-4, #header .col-xs-12 {
+      width: 100%; } }
+  #header #title {
+    text-align: center;
+    height: 100%; }
+    #header #title img {
+      height: 100%;
+      max-width: 100%;
+      min-height: 50px;
+      max-height: 100px; }
+    @media (min-height: 800px) {
+      #header #title {
+        height: 50%;
+        width: 100%; } }
 
 #game {
+  margin-top: 30px;
   width: 70%;
   max-height: 800px; }
   @media (min-aspect-ratio: 1050 / 600) {
@@ -98,27 +110,37 @@ audio {
 
 .front img {
   height: 100%;
-  max-height: 150px; }
+  max-height: 150px;
+  user-drag: none;
+  -webkit-user-drag: none; }
 
 .back img {
   height: 100%;
-  max-height: 150px; }
+  max-height: 150px;
+  user-drag: none;
+  -webkit-user-drag: none; }
 
 .transparent {
   opacity: 0; }
 
-@media (min-aspect-ratio: 1050 / 600) {
-  #info-box {
-    display: none; } }
 #info-box {
-  height: 12vh;
-  max-height: 150px;
-  border: 5px solid #0b6fa4;
+  background: rgba(255, 255, 255, 0.4);
+  min-height: 80px;
+  max-height: 125px;
+  max-width: 800px;
+  border: 3px solid #0b6fa4;
   font-size: 100%;
   font-weight: bold;
-  color: white;
-  padding-top: 15px;
-  padding-left: 20px;
+  color: #0b6fa4;
+  padding-top: 10px;
+  padding-left: 10px;
   margin-top: 5px; }
+  @media (min-height: 800px) {
+    #info-box {
+      height: 50%;
+      width: 80%;
+      margin: 10px auto;
+      float: none;
+      clear: both; } }
 
 /*# sourceMappingURL=style.css.map */
