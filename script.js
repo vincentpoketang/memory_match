@@ -110,20 +110,6 @@ function creating_div_block(front_image){
 function change_border_color(id,color){
     $(id).css("border-color",color);
 }
-function all_buttons_hover(){
-    $('#setting img').mouseover(function(){
-        change_border_color(this,'#fff335');
-    });
-    $('#setting img').mouseout(function(){
-        change_border_color(this,'#0b6fa4');
-    });
-    $('#about img').mouseover(function(){
-        change_border_color(this,'#fff335');
-    });
-    $('#about img').mouseout(function(){
-        change_border_color(this,'#0b6fa4');
-    });
-}
 function grass_move_when_hover(){
     var isAnimated = false;
     $('.card').mouseover(function(){
@@ -187,7 +173,6 @@ function addingPokemonDiv(){
 }
 $(document).ready(function(){
     addingPokemonDiv();
-    all_buttons_hover();
     $('.reset').click(function(){
         if(attempts!==0){
             games_played++;
