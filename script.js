@@ -4,6 +4,7 @@ var second_card_clicked = null;
 var total_possible_matches = 18;
 var match_counter = 0;
 var is_timeout_done = true;
+var music_on = true;
 //Stats
 var attempts = 0;
 var accuracy = 0;
@@ -19,6 +20,10 @@ function reset_stats(){
     attempts = 0;
     match_counter = 0;
     display_stats();
+}
+function play_audio_sounds(audio_filename){
+    var audio = new Audio(audio_filename+'.mp3');
+    audio.play();
 }
 function card_clicked(element){
     //show card face
@@ -54,6 +59,7 @@ function card_clicked(element){
             display_stats();
             if(match_counter === total_possible_matches){ // check for overall win
                 $('#info-box').text("You win!");
+                play_audio_sounds('winning-music');
             }
         }
         else{ // Cards does not match, reset stuff
@@ -107,13 +113,13 @@ function creating_div_block(front_image){
     positioning_div.append(card_div);
     $('#game-area').append(positioning_div);
 }
-function change_border_color(id,color){
-    $(id).css("border-color",color);
-}
 function grass_move_when_hover(){
     var isAnimated = false;
     $('.card').mouseover(function(){
         if(!isAnimated && $(this).find('.front').hasClass('transparent')){
+            if(music_on){
+                play_audio_sounds('rustling-grass');
+            }
             isAnimated = true;
             $(this).find('.back').animate({ "left": "+=3px"}, "fast" );
             $(this).find('.back').animate({ "left": "-=3px" }, "fast" );
@@ -150,12 +156,14 @@ function switch_img_of_matched_pokemon(first_card,second_card){ // Pretty much e
 function audio_off(){
     $('.fa-volume-off').removeClass('clicked');
     $('.fa-volume-up').addClass('clicked');
-    $('.themesong').trigger('pause');
+    $('#background-music').trigger('pause');
+    music_on = false;
 }
 function audio_on(){
     $('.fa-volume-up').removeClass('clicked');
     $('.fa-volume-off').addClass('clicked');
-    $('.themesong').trigger('play');
+    $('#background-music').trigger('play');
+    music_on = true;
 }
 function addingPokemonDiv(){
     for(var i = 0; i<pokemon_first_evolution.length; i++){
